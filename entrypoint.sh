@@ -4,5 +4,5 @@
 akamai help
 
 # Add any other commands you want to run here
-# akamai <command>
+akamai list
 # akamai <another_command>
