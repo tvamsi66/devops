@@ -5,9 +5,9 @@ FROM akamai/shell:latest
 WORKDIR /app
 
 # Copy the entrypoint script into the container
-COPY entrypoint.sh /app/entrypoint.sh
+COPY main/entrypoint.sh /app/entrypoint.sh
 
-COPY testFolder /app/testFolder
+COPY main/testFolder /app/testFolder
 
 # Make the entrypoint script executable
 RUN chmod +x /app/entrypoint.sh
