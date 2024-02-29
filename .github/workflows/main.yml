@@ -13,12 +13,6 @@ jobs:
     runs-on: ubuntu-latest
    
     steps:
-      - name: Prompt user for input
-        id: prompt
-        run: |
-          echo "Please enter your input:"
-          read USER_INPUT
-          echo "USER_INPUT=$USER_INPUT" >> $GITHUB_ENV
       
       - name: Checkout repository
         uses: actions/checkout@v3
