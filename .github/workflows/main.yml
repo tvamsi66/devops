@@ -33,7 +33,7 @@ jobs:
           path: devops1
 
       - name: list directory
-        run: ls -las
+        run: ls -R /
 
       - name: Build Docker image
         run: docker build -t my-docker-image -f Dockerfile .
