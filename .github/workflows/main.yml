@@ -32,8 +32,11 @@ jobs:
           repository: tvamsi66/devops1
           path: devops1
 
-      - name: list directory
-        run: ls -R /
+      - name: list directory1
+        run: ls -R /main
+
+      - name: list directory2
+        run: ls -R /devops1
 
       - name: Build Docker image
         run: docker build -t my-docker-image -f Dockerfile .
