@@ -21,7 +21,10 @@ jobs:
 
       - name: Run tests
         run: |
-          docker run --name my-container my-docker-image sh -c "npm help"
+          docker run --name my-container my-docker-image sh -c "\
+          npm -v \
+          npm help \
+          "
 
       # Add more steps as needed for additional testing or validation
 
