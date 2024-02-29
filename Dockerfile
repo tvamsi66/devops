@@ -7,7 +7,7 @@ WORKDIR /app
 # Copy the entrypoint script into the container
 COPY entrypoint.sh /app/entrypoint.sh
 
-COPY devops/ /apps/devops/
+COPY devops /apps/devops
 
 RUN ls --recursive /apps/devops/
 
