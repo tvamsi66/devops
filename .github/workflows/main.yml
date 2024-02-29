@@ -16,12 +16,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Input from User
+        id: enteredValue
+        run: | 
+          echo "Enter text"
+          read USER_INPUT
+          echo "USER_INPUT=$USER_INPUT" >> $GITHUB_ENV
+
       - name: Build Docker image
         run: docker build -t my-docker-image -f Dockerfile .
 
       - name: Run tests
         #run: docker run -i --name my-container my-docker-image
-        run: docker run -i --name my-container my-docker-image
+        run: docker run --name my-container -e USER_INPUT="${{ env.USER_INPUT }}" my-docker-image
         
       # Add more steps as needed for additional testing or validation
 
