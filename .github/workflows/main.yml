@@ -11,21 +11,17 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-    
-    inputs:
-      user_input:
-        description: 'User input'
-        required: true
+   
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Input from User
-        id: enteredValue
-        run: | 
-          echo "Enter text"
+      - name: Prompt user for input
+        id: prompt
+        run: |
+          echo "Please enter your input:"
           read USER_INPUT
           echo "USER_INPUT=$USER_INPUT" >> $GITHUB_ENV
+      
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
       - name: Build Docker image
         run: docker build -t my-docker-image -f Dockerfile .
