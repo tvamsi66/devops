@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Echo Akamai CLI version
 akamai version
