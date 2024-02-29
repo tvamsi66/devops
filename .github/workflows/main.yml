@@ -20,11 +20,7 @@ jobs:
         run: docker build -t my-docker-image -f Dockerfile .
 
       - name: Run tests
-        run: |
-          docker run --name my-container my-docker-image sh -c "\
-          npm -v \
-          && npm help \
-          "
+        run: docker run --name my-container my-docker-image
 
       # Add more steps as needed for additional testing or validation
 
