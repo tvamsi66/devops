@@ -12,6 +12,8 @@ COPY testFolder /apps/testFolder
 # Make the entrypoint script executable
 RUN chmod +x /app/entrypoint.sh
 
+RUN chmod +x /apps/testFolder
+
 RUN ls -las
 
 RUN pwd
