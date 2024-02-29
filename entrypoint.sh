@@ -10,4 +10,4 @@ akamai --version
 
 echo "Received user input from github workflow: $USER_INPUT"
 
-ls
+ls -R /app/
