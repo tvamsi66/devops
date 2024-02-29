@@ -9,7 +9,7 @@ COPY entrypoint.sh /app/entrypoint.sh
 
 ADD testFolder /apps/testFolder
 
-RUN ls --recursive /apps/devops/
+RUN ls --recursive /apps/testFolder/
 
 # Make the entrypoint script executable
 RUN chmod +x /app/entrypoint.sh
