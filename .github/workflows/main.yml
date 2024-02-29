@@ -1,4 +1,4 @@
-name: Docker Build and Test 1
+name: Deploy Pipeline to Akamai ION
 
 on:
   workflow_dispatch:
@@ -16,26 +16,26 @@ jobs:
         - name: Hello Step
           run: echo "Hello ${{ github.event.inputs.akamai_network }}"
   
-  build-and-test:
+  build-docker-image:
     runs-on: ubuntu-latest
    
     steps:
       
-      - name: Checkout repository1
+      - name: Checkout main repository
         uses: actions/checkout@v4
         with:
           path: main
 
-      - name: Checkout tools repo
+      - name: Checkout secondary repository
         uses: actions/checkout@v4
         with:
           repository: tvamsi66/devops1
           path: devops1
 
-      - name: list directory1
+      - name: ls main repository
         run: ls -R main
 
-      - name: list directory2
+      - name: ls secondary repository
         run: ls -R devops1
 
       - name: Build Docker image
