@@ -39,7 +39,7 @@ jobs:
         run: ls -R devops1
 
       - name: Build Docker image
-        run: docker build -t my-docker-image -f Dockerfile .
+        run: docker build -t my-docker-image -f main/Dockerfile .
 
       - name: Run tests
         #run: docker run -i --name my-container my-docker-image
