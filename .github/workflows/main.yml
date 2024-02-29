@@ -3,9 +3,9 @@ name: Docker Build and Test 1
 on:
   workflow_dispatch:
     inputs:
-      name:
-        description: "Who to greet"
-        default: "World"
+      akamai_network:
+        description: "Akamai Network"
+        default: "tst1"
 
 jobs:
   hello:
@@ -13,7 +13,7 @@ jobs:
 
         steps:
         - name: Hello Step
-          run: echo "Hello ${{ github.event.inputs.name }}"
+          run: echo "Hello ${{ github.event.inputs.akamai_network }}"
   
   build-and-test:
     runs-on: ubuntu-latest
@@ -28,7 +28,7 @@ jobs:
 
       - name: Run tests
         #run: docker run -i --name my-container my-docker-image
-        run: docker run --name my-container -e USER_INPUT="${{ env.USER_INPUT }}" my-docker-image
+        run: docker run --name my-container -e USER_INPUT="${{ github.event.inputs.user_input }}" my-docker-image
         
       # Add more steps as needed for additional testing or validation
 
