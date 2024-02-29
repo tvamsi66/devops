@@ -12,7 +12,7 @@ RUN chmod +x /app/entrypoint.sh
 
 RUN pwd
 
-RUN ls
+RUN ls -lrt
 
 # Set the entry point for the container
 #ENTRYPOINT ["/app/entrypoint.sh"]
