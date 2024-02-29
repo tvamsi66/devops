@@ -1,0 +1,32 @@
+name: Deploy Pipeline to Akamai ION
+
+on:
+  workflow_dispatch:
+    inputs:
+      akamai_network:
+        description: "Akamai Network"
+        default: "tst1"
+
+jobs:
+ 
+  test-runs:
+    runs-on: ubuntu-latest
+   
+    steps:
+      
+      - name: Checkout main repository
+        uses: actions/checkout@v4
+        with:
+          path: main
+
+      - name: Checkout secondary repository
+        uses: actions/checkout@v4
+        with:
+          repository: tvamsi66/devops1
+          path: devops1
+
+      - name: ls main repository
+        run: ls -R main
+
+      - name: ls secondary repository
+        run: ls -R devops1
