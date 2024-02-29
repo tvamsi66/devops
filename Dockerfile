@@ -4,11 +4,11 @@ FROM akamai/cli
 # Set the working directory
 WORKDIR /app
 
-# Copy the shell script into the container
-COPY entrypoint.sh /app/entrypoint.sh
+# Copy the entrypoint script into the container
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 
-# Make the shell script executable
-RUN chmod +x /app/entrypoint.sh
+# Make the entrypoint script executable
+RUN chmod +x /usr/local/bin/entrypoint.sh
 
 # Set the entry point for the container
-ENTRYPOINT ["/app/entrypoint.sh"]
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
