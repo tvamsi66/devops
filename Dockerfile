@@ -15,4 +15,4 @@ RUN pwd
 RUN ls -lrt
 
 # Set the entry point for the container
-#ENTRYPOINT ["/app/entrypoint.sh"]
+ENTRYPOINT ["/app/entrypoint.sh"]
