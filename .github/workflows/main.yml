@@ -20,8 +20,16 @@ jobs:
    
     steps:
       
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout repository1
+        uses: actions/checkout@v4
+        with:
+          path: main
+
+      - name: Checkout tools repo
+        uses: actions/checkout@v4
+        with:
+          repository: tvamsi66/devops1
+          path: devops1
 
       - name: Build Docker image
         run: docker build -t my-docker-image -f Dockerfile .
