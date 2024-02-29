@@ -21,7 +21,8 @@ jobs:
 
       - name: Run tests
         #run: docker run -i --name my-container my-docker-image
-
+        run: docker run -i --name my-container my-docker-image
+        
       # Add more steps as needed for additional testing or validation
 
       - name: Clean up Docker container
