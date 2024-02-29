@@ -10,9 +10,5 @@ COPY entrypoint.sh /app/entrypoint.sh
 # Make the entrypoint script executable
 RUN chmod +x /app/entrypoint.sh
 
-RUN pwd
-
-RUN ls -lrt
-
 # Set the entry point for the container
 ENTRYPOINT ["/app/entrypoint.sh"]
