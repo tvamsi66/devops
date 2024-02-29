@@ -10,7 +10,9 @@ COPY entrypoint.sh /app/entrypoint.sh
 # Make the entrypoint script executable
 RUN chmod +x /app/entrypoint.sh
 
-RUN ls -lrt
+RUN cd /
+
+RUN ls -las
 
 RUN pwd
 
