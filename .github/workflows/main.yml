@@ -8,6 +8,13 @@ on:
         default: "tst1"
 
 jobs:
+  list-directory: 
+    runs-on: ubuntu-latest
+
+    steps: 
+    - name: list-directory steop
+      run: ls -las
+    
   hello:
         runs-on: ubuntu-latest
 
