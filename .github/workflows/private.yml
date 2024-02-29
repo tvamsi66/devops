@@ -19,14 +19,14 @@ jobs:
         with:
           path: main
 
-      - name: Checkout secondary repository
-        uses: actions/checkout@v4
-        with:
-          repository: tvamsi66/devops1
-          path: devops1
+      #- name: Checkout secondary repository
+      #  uses: actions/checkout@v4
+      #  with:
+      #    repository: tvamsi66/devops1
+      #    path: devops1
 
       - name: ls main repository
         run: ls -R main
 
-      - name: ls secondary repository
-        run: ls -R devops1
+      #- name: ls secondary repository
+      #  run: ls -R devops1
