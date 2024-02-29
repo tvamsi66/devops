@@ -1,5 +1,5 @@
 # Use the official Akamai CLI Docker image
-FROM akamai/cli
+FROM akamai/shell:latest
 
 # Set the working directory
 WORKDIR /app
