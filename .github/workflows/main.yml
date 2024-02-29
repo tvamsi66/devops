@@ -29,6 +29,7 @@ jobs:
       - name: Run tests
         #run: docker run -i --name my-container my-docker-image
         run: docker run --name my-container -e USER_INPUT="${{ env.USER_INPUT }}" my-docker-image
+        #test
         
       # Add more steps as needed for additional testing or validation
 
