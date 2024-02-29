@@ -1,20 +1,14 @@
-# Use an official Node.js runtime as a parent image
-FROM node:14
+# Use the official Akamai CLI Docker image
+FROM akamai/cli
 
-# Set the working directory in the container
+# Set the working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json to the working directory
-COPY package*.json ./
+# Copy the shell script into the container
+COPY entrypoint.sh /app/entrypoint.sh
 
-# Install Node.js dependencies
-RUN npm install
+# Make the shell script executable
+RUN chmod +x /app/entrypoint.sh
 
-# Copy the rest of the application code to the working directory
-COPY . .
-
-# Expose port 3000 to allow communication to/from the Docker container
-EXPOSE 3000
-
-# Command to run the application when the container starts
-CMD ["node", "app.js"]
+# Set the entry point for the container
+ENTRYPOINT ["/app/entrypoint.sh"]
