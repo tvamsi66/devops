@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Echo Akamai CLI version
-akamai version
+akamai help
 
 # Add any other commands you want to run here
 # akamai <command>
