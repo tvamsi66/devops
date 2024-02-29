@@ -7,7 +7,7 @@ WORKDIR /app
 # Copy the entrypoint script into the container
 COPY entrypoint.sh /app/entrypoint.sh
 
-COPY testFolder/test1.txt /apps/test1.txt
+COPY testFolder /app/testFolder
 
 # Make the entrypoint script executable
 RUN chmod +x /app/entrypoint.sh
