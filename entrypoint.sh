@@ -8,4 +8,4 @@
 #akamai list
 #akamai --version
 
-#echo "Received user input from github workflow: $USER_INPUT"
+echo "Received user input from github workflow: $USER_INPUT"
