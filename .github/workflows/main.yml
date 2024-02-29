@@ -19,17 +19,14 @@ jobs:
       - name: Build Docker image
         run: docker build -t my-docker-image -f Dockerfile .
 
-      - name: Run Docker container
-        run: docker run -d --name my-container my-docker-image
-
-      - name: Test Docker container
+      - name: Run tests
         run: |
-          docker exec my-container echo "Running tests..."
-          
+          docker run --name my-container my-docker-image docker ps -a
+
       # Add more steps as needed for additional testing or validation
 
-      - name: Stop and remove Docker container
-        run: docker stop my-container && docker rm my-container
+      - name: Clean up Docker container
+        run: docker rm my-container
 
       - name: Clean up Docker images
         run: docker rmi my-docker-image
