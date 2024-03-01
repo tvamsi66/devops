@@ -6,7 +6,10 @@ on:
       akamai_network:
         description: "Akamai Network"
         default: "tst1"
-
+        
+  repository_dispatch:
+    types: [trigger-external-workflow]
+    
 jobs:
  
   test-runs:
@@ -31,3 +34,6 @@ jobs:
 
       - name: ls secondary repository
         run: ls -R devops1
+
+      - name: Print received data
+        run: echo "Received data:${{ github.event.client_payload.data }}"
