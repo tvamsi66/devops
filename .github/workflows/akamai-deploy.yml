@@ -1,0 +1,45 @@
+name: Deploy to Akamai ION
+
+on:
+  repository_dispatch:
+    types: [trigger-akamai-deplooy-workflow]
+
+jobs:    
+   
+  build-docker-image:
+    runs-on: ubuntu-latest
+   
+    steps:
+      
+      - name: Checkout main repository
+        uses: actions/checkout@v4
+        with:
+          path: main
+
+      - name: Checkout secondary repository
+        uses: actions/checkout@v4
+        with:
+          repository: tvamsi66/devops1
+          path: devops1
+          token: ${{ secrets.ACCESS_TOKEN_DEVOPS1 }}
+
+      - name: ls main repository
+        run: ls -R main
+
+      - name: ls secondary repository
+        run: ls -R devops1
+
+      - name: Build Docker image
+        run: docker build -t my-docker-image -f main/Dockerfile .
+
+      - name: Run tests
+        #run: docker run -i --name my-container my-docker-image
+        run: docker run --name my-container -e AKAMAI_NETWORK="${{ github.event.client_payload.akamai_network }}" -e ENVIRONMENT="${{ github.event.client_payload.environment }}" my-docker-image
+        
+      # Add more steps as needed for additional testing or validation
+
+      - name: Clean up Docker container
+        run: docker rm my-container
+
+      - name: Clean up Docker images
+        run: docker rmi my-docker-image
