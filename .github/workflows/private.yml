@@ -24,7 +24,7 @@ jobs:
         with:
           repository: tvamsi66/devops1
           path: devops1
-          token: ${{ secrets.SECRET_ACCESS_TOKEN_DEVOPS1 }}
+          token: ${{ secrets.ACCESS_TOKEN_DEVOPS1 }}
 
       - name: ls main repository
         run: ls -R main
