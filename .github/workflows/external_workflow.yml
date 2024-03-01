@@ -1,0 +1,13 @@
+name: External Workflow
+
+on:
+  repository_dispatch:
+    types: [trigger-external-workflow]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print received data
+        run: echo "Received data: ${{ github.event.client_payload.data }}"
