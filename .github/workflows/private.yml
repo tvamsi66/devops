@@ -8,7 +8,7 @@ on:
         default: "tst1"
         
   repository_dispatch:
-    types: [trigger-external-workflow]
+    types: [trigger-private-workflow]
     
 jobs:
  
