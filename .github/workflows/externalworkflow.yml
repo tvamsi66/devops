@@ -10,4 +10,4 @@ jobs:
 
     steps:
       - name: Print received data
-        run: echo "Received data: ${{ github.event.client_payload.data }}"
+        run: echo "Received data:${{ github.event.client_payload.data }}"
