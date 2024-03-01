@@ -8,6 +8,7 @@
 akamai list
 akamai --version
 
-echo "Received user input from github workflow: $USER_INPUT"
+echo "Received user input from github workflow: $AKAMAI_NETWORK"
+echo "Received user input from github workflow: $ENVIRONMENT"
 
 ls -R /app/
