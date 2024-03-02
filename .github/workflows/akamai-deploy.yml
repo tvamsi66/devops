@@ -8,6 +8,9 @@ jobs:
    
   build-docker-image:
     runs-on: ubuntu-latest
+    
+    env: 
+      REPO: ${{ github.event.client_payload.repository }}
    
     steps:
       
@@ -16,7 +19,7 @@ jobs:
         with:
           path: CDN-akamai
 
-      - name: Checkout ${{ github.event.client_payload.repository }} repository
+      - name: Checkout $REPO repository
         uses: actions/checkout@v4
         with:
           repository: tvamsi66/devops1
