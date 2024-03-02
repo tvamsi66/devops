@@ -19,11 +19,11 @@ jobs:
         with:
           path: CDN-akamai
 
-      - name: Checkout $REPO repository
+      - name: Checkout  ${{ github.event.client_payload.repository }} repository
         uses: actions/checkout@v4
         with:
           repository: tvamsi66/devops1
-          path: ${{ github.event.client_payload.repository }}
+          path: $REPO
           token: ${{ secrets.ACCESS_TOKEN_DEVOPS1 }}
 
       - name: ls CDN-akamai repository
