@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: tvamsi66/devops1
-          path: cdn-pipe-api-rccl-com
+          path: ${{ github.event.client_payload.repository }}
           token: ${{ secrets.ACCESS_TOKEN_DEVOPS1 }}
 
       - name: ls CDN-akamai repository
