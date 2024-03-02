@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env: 
-      REPO: ${{ github.event.client_payload.repository }}
+      PIPELINE_REPO: ${{ github.event.client_payload.repository }}
    
     steps:
       - name: Checkout CDN-akamai repository
@@ -46,7 +46,7 @@ jobs:
           cat edgerc.config
 
       - name: Build Docker image
-        run: docker build --build-arg REPO="${{ env.REPO }}" -t my-docker-image -f CDN-akamai/Dockerfile .
+        run: docker build --build-arg PIPELINE_REPO="${{ env.PIPELINE_REPO }}" -t my-docker-image -f CDN-akamai/Dockerfile .
 
       - name: Run tests
         #run: docker run -i --name my-container my-docker-image
