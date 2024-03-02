@@ -10,6 +10,9 @@ akamai --version
 
 echo "Received user input from github workflow: $AKAMAI_NETWORK"
 echo "Received user input from github workflow: $ENVIRONMENT"
+echo "Received user input from github workflow: $PIPELINE_NAME"
+echo "Received user input from github workflow: $PROPERTY_NAME"
+
 
 ls -R /app/
 
