@@ -29,11 +29,16 @@ jobs:
 
       - name: Create .edgerc file
         env: 
-          AKAMAI_SECRET: "ITS A SECRET"
-          AKAMAI_HOST: "TVAMSI66.COM"
+          AKAMAI_CLIENT_SECRET: ${{ secrets.AKAMAI_CLIENT_SECRET }}
+          AKAMAI_HOST: ${{ secrets.AKAMAI_HOST }}
+          AKAMAI_ACCESS_TOKEN: ${{ secrets.AKAMAI_ACCESS_TOKEN }}
+          AKAMAI_CLIENT_TOKEN: ${{ secrets.AKAMAI_CLIENT_TOKEN }}
         run: |
-          echo "akamai_secret=${AKAMAI_SECRET}" > ~/.edgerc
-          echo "akamai_host=${AKAMAI_HOST}" >> ~/.edgerc
+          echo "[default]" > ~/.edgerc
+          echo "client_secret = ${AKAMAI_CLIENT_SECRET}" >> ~/.edgerc
+          echo "host = ${AKAMAI_HOST}" >> ~/.edgerc
+          echo "access_token = ${AKAMAI_ACCESS_TOKEN}" >> ~/.edgerc
+          echo "client_token = ${AKAMAI_CLIENT_TOKEN}" >> ~/.edgerc
           ls -las
           ls -las ~
           cat ~/.edgerc
