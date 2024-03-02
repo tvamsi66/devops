@@ -48,8 +48,7 @@ jobs:
       - name: Build Docker image
         run: docker build --build-arg PIPELINE_REPO="${{ env.PIPELINE_REPO }}" -t my-docker-image -f CDN-akamai/Dockerfile .
 
-      - name: Run tests
-        #run: docker run -i --name my-container my-docker-image
+      - name: Instantiate Docker Container and Deploy pipeline
         run: docker run --name my-container -e AKAMAI_NETWORK="${{ github.event.client_payload.akamai_network }}" -e ENVIRONMENT="${{ github.event.client_payload.environment }}" -e PIPELINE_NAME="${{ github.event.client_payload.pipeline_name }}" -e PROPERTY_NAME="${{ github.event.client_payload.property_name }}" my-docker-image
         
       # Add more steps as needed for additional testing or validation
