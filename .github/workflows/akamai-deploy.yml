@@ -4,35 +4,30 @@ on:
   repository_dispatch:
     types: [akamai-deploy-workflow]
 
-jobs:    
+jobs:      
   
-  Checkout_Repositories: 
-      runs-on: ubuntu-latest
-
-      steps: 
-
-        - name: Checkout CDN-akamai repository
-          uses: actions/checkout@v4
-          with:
-            path: CDN-akamai
-  
-        - name: Checkout  ${{ github.event.client_payload.repository }} repository
-          uses: actions/checkout@v4
-          with:
-            repository: tvamsi66/devops1
-            path: ${{ github.event.client_payload.repository }}
-            token: ${{ secrets.ACCESS_TOKEN_DEVOPS1 }}
-  
-        - name: ls CDN-akamai repository
-          run: ls -R CDN-akamai
-  
-        - name: ls ${{ github.event.client_payload.repository }} repository
-          run: ls -R ${{ github.event.client_payload.repository }}
-   
   build-docker-image:
     runs-on: ubuntu-latest
    
     steps:  
+
+      - name: Checkout CDN-akamai repository
+        uses: actions/checkout@v4
+        with:
+          path: CDN-akamai
+
+      - name: Checkout  ${{ github.event.client_payload.repository }} repository
+        uses: actions/checkout@v4
+        with:
+          repository: tvamsi66/devops1
+          path: ${{ github.event.client_payload.repository }}
+          token: ${{ secrets.ACCESS_TOKEN_DEVOPS1 }}
+
+      - name: ls CDN-akamai repository
+        run: ls -R CDN-akamai
+
+      - name: ls ${{ github.event.client_payload.repository }} repository
+        run: ls -R ${{ github.event.client_payload.repository }}
 
       - name: Create .edgerc file
         env: 
