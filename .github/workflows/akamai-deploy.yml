@@ -34,7 +34,7 @@ jobs:
           AKAMAI_ACCESS_TOKEN: ${{ secrets.AKAMAI_ACCESS_TOKEN }}
           AKAMAI_CLIENT_TOKEN: ${{ secrets.AKAMAI_CLIENT_TOKEN }}
         run: |
-          echo "[default]" > edgerc.config
+          echo "[papi]" > edgerc.config
           echo "client_secret = ${AKAMAI_CLIENT_SECRET}" >> edgerc.config
           echo "host = ${AKAMAI_HOST}" >> edgerc.config
           echo "access_token = ${AKAMAI_ACCESS_TOKEN}" >> edgerc.config
