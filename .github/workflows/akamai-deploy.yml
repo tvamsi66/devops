@@ -37,6 +37,7 @@ jobs:
           echo "akamai_secret=${AKAMAI_SECRET}" > .edgerc
           echo "akamai_host=${AKAMAI_HOST}" >> .edgerc
           ls -las
+          ls -las ~
           cat .edgerc
 
       - name: Build Docker image
