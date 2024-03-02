@@ -29,6 +29,15 @@ jobs:
       - name: ls ${{ github.event.client_payload.repository }} repository
         run: ls -R ${{ github.event.client_payload.repository }}
 
+      - name: Create .edgerc file
+        env: 
+          AKAMAI_SECRET: "ITS A SECRET"
+          AKAMAI_HOST: "TVAMSI66.COM"
+        run: |
+          echo: "akamai_secret="${AKAMAI_SECRET}" >> .edgerc
+          echo: "akamai_host="${AKAMAI_HOST}" >> .edgerc
+          ls -las
+
       - name: Build Docker image
         run: docker build -t my-docker-image -f CDN-akamai/Dockerfile .
 
