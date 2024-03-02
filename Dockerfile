@@ -2,13 +2,10 @@
 FROM akamai/shell:latest
 
 # Use ARG to define the build argument
-ARG REPO
+ARG PIPELINE_REPO
 
 # Set ENV_VARIABLE using the value passed from the build argument
-ENV ENV_REPO=$REPO
-
-# Print variable passed from github actions workflow
-RUN echo "Environment variable value is $REPO"
+#ENV ENV_REPO=$REPO
 
 # Set the working directory
 WORKDIR /app
@@ -20,7 +17,7 @@ COPY CDN-akamai/entrypoint.sh /app/entrypoint.sh
 COPY edgerc.config /app/edgerc.config
 
 # Copy the pipeline to the container
-COPY $REPO /app/$REPO
+COPY $PIPELINE_REPO /app/$PIPELINE_REPO
 
 RUN ls -R /app
 
