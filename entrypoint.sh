@@ -15,6 +15,3 @@ echo "Received user input from github workflow: $PROPERTY_NAME"
 
 
 ls -R /app/
-
-cd /app/testFolder
-cat test1.txt  
