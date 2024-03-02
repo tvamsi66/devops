@@ -12,3 +12,6 @@ echo "Received user input from github workflow: $AKAMAI_NETWORK"
 echo "Received user input from github workflow: $ENVIRONMENT"
 
 ls -R /app/
+
+cd /app/testFolder
+cat test1.txt  
