@@ -34,8 +34,8 @@ jobs:
           AKAMAI_SECRET: "ITS A SECRET"
           AKAMAI_HOST: "TVAMSI66.COM"
         run: |
-          echo "akamai_secret=${AKAMAI_SECRET}" > .edgerc
-          echo "akamai_host=${AKAMAI_HOST}" >> .edgerc
+          echo "akamai_secret=${AKAMAI_SECRET}" > ~/.edgerc
+          echo "akamai_host=${AKAMAI_HOST}" >> ~/.edgerc
           ls -las
           ls -las ~
           cat .edgerc
