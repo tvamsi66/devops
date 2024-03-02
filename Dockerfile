@@ -7,6 +7,9 @@ WORKDIR /app
 # Copy the entrypoint script into the container
 COPY CDN-akamai/entrypoint.sh /app/entrypoint.sh
 
+# Copy the .edgerc into the container
+#COPY CDN-akamai/entrypoint.sh /app/entrypoint.sh
+
 # Make the entrypoint script executable
 RUN chmod +x /app/entrypoint.sh
 
