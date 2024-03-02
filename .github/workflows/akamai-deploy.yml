@@ -38,7 +38,7 @@ jobs:
           echo "akamai_host=${AKAMAI_HOST}" >> ~/.edgerc
           ls -las
           ls -las ~
-          cat .edgerc
+          cat ~/.edgerc
 
       - name: Build Docker image
         run: docker build -t my-docker-image -f CDN-akamai/Dockerfile .
