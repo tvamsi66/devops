@@ -1,13 +1,12 @@
 #!/bin/sh
 
 # Echo Akamai CLI version
-
-#akamai help
-
-# Add any other commands you want to run here
-akamai list
 akamai --version
 
+akamai property-manager lg
+
+
+# Test Received user inputs from other workflows
 echo "Received user input from github workflow: $AKAMAI_NETWORK"
 echo "Received user input from github workflow: $ENVIRONMENT"
 echo "Received user input from github workflow: $PIPELINE_NAME"
