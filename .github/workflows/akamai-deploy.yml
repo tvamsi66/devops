@@ -6,7 +6,7 @@ on:
 
 jobs:    
   
-  -name: Checkout Repositories: 
+  Checkout_Repositories: 
       runs-on: ubuntu-latest
 
       steps: 
