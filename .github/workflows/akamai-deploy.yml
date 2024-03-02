@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     
     env: 
-      REPO: ${{ github.event.client_payload.repository }}
+      REPO: "hello"
    
     steps:
       
