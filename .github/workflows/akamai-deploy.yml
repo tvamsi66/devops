@@ -4,13 +4,11 @@ on:
   repository_dispatch:
     types: [akamai-deploy-workflow]
 
-jobs:      
-  
+jobs:  
   build-docker-image:
     runs-on: ubuntu-latest
    
-    steps:  
-
+    steps:
       - name: Checkout CDN-akamai repository
         uses: actions/checkout@v4
         with:
