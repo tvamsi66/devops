@@ -5,6 +5,7 @@ akamai --version
 
 akamai property-manager lg
 
+akamai pipeline lc
 
 # Test Received user inputs from other workflows
 echo "Received user input from github workflow: $AKAMAI_NETWORK"
