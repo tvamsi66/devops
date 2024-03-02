@@ -16,18 +16,18 @@ jobs:
         with:
           path: cdn-akamai
 
-      - name: Checkout "${{ github.event.client_payload.repository }}" repository
+      - name: Checkout ${{ github.event.client_payload.repository }} repository
         uses: actions/checkout@v4
         with:
           repository: tvamsi66/devops1
           path: cdn-pipe-api-rccl-com
           token: ${{ secrets.ACCESS_TOKEN_DEVOPS1 }}
 
-      - name: ls main repository
-        run: ls -R main
+      - name: ls CDN-akamai repository
+        run: ls -R cdn-akamai
 
-      - name: ls secondary repository
-        run: ls -R devops1
+      - name: ls ${{ github.event.client_payload.repository }} repository
+        run: ls -R ${{ github.event.client_payload.repository }}
 
       - name: Build Docker image
         run: docker build -t my-docker-image -f main/Dockerfile .
