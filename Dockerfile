@@ -20,7 +20,7 @@ COPY CDN-akamai/entrypoint.sh /app/entrypoint.sh
 COPY edgerc.config /app/edgerc.config
 
 # Copy the pipeline to the container
-COPY 
+#COPY 
 
 # Make the entrypoint script executable
 RUN chmod +x /app/entrypoint.sh
