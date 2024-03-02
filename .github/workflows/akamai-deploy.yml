@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     
     env: 
-      REPO: "hello"
+      REPO: "CDN-pipe-api-rccl-com"
    
     steps:
       
