@@ -40,7 +40,6 @@ jobs:
           echo "access_token = ${AKAMAI_ACCESS_TOKEN}" >> .edgerc
           echo "client_token = ${AKAMAI_CLIENT_TOKEN}" >> .edgerc
           ls -las
-          ls -las ~
           cat .edgerc
 
       - name: Build Docker image
