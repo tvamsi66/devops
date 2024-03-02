@@ -11,16 +11,16 @@ jobs:
    
     steps:
       
-      - name: Checkout main repository
+      - name: Checkout CDN-akamai repository
         uses: actions/checkout@v4
         with:
-          path: main
+          path: cdn-akamai
 
-      - name: Checkout secondary repository
+      - name: Checkout "${{ github.event.client_payload.repository }}" repository
         uses: actions/checkout@v4
         with:
           repository: tvamsi66/devops1
-          path: devops1
+          path: cdn-pipe-api-rccl-com
           token: ${{ secrets.ACCESS_TOKEN_DEVOPS1 }}
 
       - name: ls main repository
