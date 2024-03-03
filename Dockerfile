@@ -14,7 +14,7 @@ WORKDIR /app
 COPY $PIPELINE_REPO /app/$PIPELINE_REPO
 
 # Copy the .edgerc file to the docker container
-COPY edgerc.config /app/edgerc.config
+COPY edgerc.config /app/$PIPELINE_REPO/edgerc.config
 
 # Copy the entrypoint script into the docker container
 COPY CDN-akamai/entrypoint.sh /app/entrypoint.sh
