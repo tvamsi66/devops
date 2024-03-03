@@ -53,7 +53,7 @@ jobs:
         run: docker build --build-arg PIPELINE_REPO="${{ env.PIPELINE_REPO }}" -t my-docker-image -f CDN-akamai/Dockerfile .
 
       - name: Instantiate Docker Container and Deploy pipeline
-        run: docker run --name my-container -e AKAMAI_NETWORK="$AKAMAI_NETWORK" -e ENVIRONMENT="$ENVIRONMENT" -e PIPELINE_NAME="$PIPELINE_NAME" -e PROPERTY_NAME="$PROPERTY_NAME" my-docker-image
+        run: docker run --name my-container -e AKAMAI_NETWORK="$AKAMAI_NETWORK" -e ENVIRONMENT="$ENVIRONMENT" -e PIPELINE_NAME="$PIPELINE_NAME" -e PROPERTY_NAME="$PROPERTY_NAME" -e PIPELINE_REPO="$PIPELINE_REPO" my-docker-image
         
       # Add more steps as needed for additional testing or validation
 
