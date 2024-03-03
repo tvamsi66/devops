@@ -5,7 +5,7 @@ on:
     types: [akamai-deploy-workflow]
 
 jobs:  
-  build-docker-image:
+  build-docker-image-and-deploy-pipeline-to-akamai:
     runs-on: ubuntu-latest
 
     env: 
