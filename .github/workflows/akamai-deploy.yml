@@ -50,7 +50,7 @@ jobs:
           cat edgerc.config
 
       - name: Build Docker image
-        run: docker build --build-arg PIPELINE_REPO="${{ env.PIPELINE_REPO }}" -t my-docker-image -f CDN-akamai/Dockerfile .
+        run: docker build --build-arg PIPELINE_REPO="${{ env.PIPELINE_REPO }}" -t my-docker-image -f CDN-akamai/akamai-docker-github/Dockerfile .
 
       - name: Instantiate Docker Container and Deploy pipeline
         run: docker run --name my-container -e AKAMAI_NETWORK="$AKAMAI_NETWORK" -e ENVIRONMENT="$ENVIRONMENT" -e PIPELINE_NAME="$PIPELINE_NAME" -e PROPERTY_NAME="$PROPERTY_NAME" -e PIPELINE_REPO="$PIPELINE_REPO" my-docker-image
