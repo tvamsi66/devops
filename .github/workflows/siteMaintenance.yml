@@ -1,0 +1,55 @@
+name: Site Maintenance
+
+on:
+  workflow_dispatch:    
+    inputs:
+    
+      akamai_network:
+        description: 'Select Akamai network'
+        required: false
+        default: 'staging'
+        type: choice
+        options:
+          - staging
+          - production
+          
+      environment:
+        description: 'Select Environment'
+        required: false
+        default: 'tst1'
+        type: choice
+        options:
+          - tst1
+          - stg1
+
+      enable_Toggle:
+        description: 'Select to Enable or Disable site maintenance'
+        required: false
+        default: 'disable'
+        type: choice
+        options:
+          - enable
+          - disable
+      
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install rsync
+        run: sudo apt-get install rsync -y
+
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Enable/Disable Site Maintenance
+        run: |
+          rsync -avz \
+            -e "ssh -o StrictHostKeyChecking=no" \
+            /path/to/local/file.txt \
+            username@example.com:/destination/path/file.txt
