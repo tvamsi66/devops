@@ -46,10 +46,12 @@ jobs:
         uses: webfactory/ssh-agent@v0.5.3
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
+      - name: ls to repo
+        run: ls -las
+        
       - name: Enable/Disable Site Maintenance
         run: |
           rsync -avz \
             -e "ssh -o StrictHostKeyChecking=no" \
             /path/to/local/file.txt \
-            username@example.com:/destination/path/file.txt
+            maintenance-utils.ssh.upload.akamai.com:/destination/path/file.txt
