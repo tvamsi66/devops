@@ -54,5 +54,5 @@ jobs:
         run: |
           rsync -avz \
             -e "ssh -o StrictHostKeyChecking=no" \
-            /path/to/local/file.txt \
-            maintenance-utils.ssh.upload.akamai.com:/destination/path/file.txt
+            /test.txt \
+            maintenance-utils.ssh.upload.akamai.com:/test.txt
