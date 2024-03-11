@@ -42,12 +42,13 @@ jobs:
       - name: Install rsync
         run: sudo apt-get install rsync -y
 
+      - name: ls repo
+        run: ls -las
+
       - name: Set up SSH
         uses: webfactory/ssh-agent@v0.5.3
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-      - name: ls to repo
-        run: ls -las
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}      
         
       - name: Enable/Disable Site Maintenance
         run: |
