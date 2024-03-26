@@ -10,14 +10,17 @@ cd /app/$PIPELINE_REPO
 #akamai pipeline crf -p "$PIPELINE_NAME" -r v2023-01-05
 
 #Run a merge
-akamai pipeline merge -p "$PIPELINE_NAME" $ENVIRONMENT
+#akamai pipeline merge -p "$PIPELINE_NAME" $ENVIRONMENT
+
+echo "list groups"
+akamai pm list-groups
 
 #Update the property in ION
 #akamai pm set-ruleformat v2023-01-05
-akamai pm property-update -p "$ENVIRONMENT"$PROPERTY_NAME --file /app/$PIPELINE_REPO/$PIPELINE_NAME/dist/"$ENVIRONMENT".$PROPERTY_NAME.papi.json
+#akamai pm property-update -p "$ENVIRONMENT"$PROPERTY_NAME --file /app/$PIPELINE_REPO/$PIPELINE_NAME/dist/"$ENVIRONMENT".$PROPERTY_NAME.papi.json
 
 #Activate the property in ION
-akamai property-manager activate-version -p $ENVIRONMENT.$PROPERTY_NAME --network $AKAMAI_NETWORK
+#akamai property-manager activate-version -p $ENVIRONMENT.$PROPERTY_NAME --network $AKAMAI_NETWORK
 
 #--------------------------------------------------
 ls -R /app/
